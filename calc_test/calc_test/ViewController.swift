@@ -83,22 +83,22 @@ class ViewController: UIViewController {
 // -括弧記号を入力----------------------------------------------------
 // "(" = tag 104 ,    ")" = tag 105
     @IBAction func parentheses(_ sender: UIButton) {
-        if formulas_num == ""{
+        if calc.formulas_num == ""{
         }else{//   (2+3) の時　3 を　formulasに追加するために通る
-            formulas.append(formulas_num)
-            formulas_num = ""
+            calc.formulas.append(calc.formulas_num)
+            calc.formulas_num = ""
         }
         switch String(sender.tag){
             case "104":
-                only_formulas += "("
-                formulas.append("(")
+                calc.only_formulas += "("
+                calc.formulas.append("(")
             case "105":
-                only_formulas += ")"
-                formulas.append(")")
+                calc.only_formulas += ")"
+                calc.formulas.append(")")
             default:
                 break
         }
-        Formula.text = only_formulas //式を表示
+        Formula.text = calc.only_formulas //式を表示
     }
     
 //--イコールを入力された時-----------------------------
@@ -126,6 +126,6 @@ class ViewController: UIViewController {
         calc.only_formulas = ""
         Formula.text = ""
         Ans.text = "0"
-        signal_TF = true
+        calc.signal_TF = true
     }
 }
